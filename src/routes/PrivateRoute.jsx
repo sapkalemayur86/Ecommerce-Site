@@ -7,7 +7,7 @@ function PrivateRoute() {
       <Outlet />
     </>
   ) : (
-    <Navigate to="/products" />
+    <Navigate to="/login" />
   );
 }
 
