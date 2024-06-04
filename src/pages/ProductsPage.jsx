@@ -1,4 +1,5 @@
 import { product } from "../data/data,js";
+import { Link } from "react-router-dom";
 
 function truncateDescription(description, maxLength = 100) {
   if (description.length > maxLength) {
@@ -9,8 +10,9 @@ function truncateDescription(description, maxLength = 100) {
 
 function ProductsPage() {
   const listItems = product.map((product) => (
-    <li key={product.id}>
-      <div className="product-card">
+    <li key={product.id}>      
+    <Link to={`/products/${product.id}`}>
+    <div className="product-card">
         {
           <img
             className="product-img"
@@ -24,6 +26,7 @@ function ProductsPage() {
         </p>
         <h3>{`${product.price} $`}</h3>
       </div>
+    </Link>
     </li>
   ));
   return <ul className="product-list">{listItems}</ul>;

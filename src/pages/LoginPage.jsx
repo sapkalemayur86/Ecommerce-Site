@@ -55,7 +55,7 @@ const LoginPage = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <p>{errors.email && touched.email && errors.email}</p>
+              <p className="error-text">{errors.email && touched.email && errors.email}</p>
 
               <input
                 type="password"
@@ -64,7 +64,7 @@ const LoginPage = () => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              <p>{errors.password && touched.password && errors.password}</p>
+              <p className="error-text">{errors.password && touched.password && errors.password}</p>
               <button type="submit" disabled={isSubmitting}>
                 Submit
               </button>
