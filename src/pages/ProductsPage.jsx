@@ -1,5 +1,5 @@
-import { product } from "../data/data,js";
 import { Link } from "react-router-dom";
+import { useGetAllProducts } from "../services/useProductServices";
 
 function truncateDescription(description, maxLength = 100) {
   if (description.length > maxLength) {
@@ -9,7 +9,11 @@ function truncateDescription(description, maxLength = 100) {
 }
 
 function ProductsPage() {
-  const listItems = product.map((product) => (
+  const [products,loading]=useGetAllProducts();
+  if(loading){
+  return <p> Loading ...</p>
+  }
+  const listItems = products.map((product) => (
     <li key={product.id}>      
     <Link to={`/products/${product.id}`}>
     <div className="product-card">
